@@ -1,0 +1,481 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce E-Transactions plugin\n"
+"POT-Creation-Date: 2015-10-06 12:54+0200\n"
+"PO-Revision-Date: 2015-10-06 12:56+0200\n"
+"Last-Translator: \n"
+"Language-Team: BM Services <wordpress@e-transactions.fr>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-Basepath: J:/Modules eCommerce/Modules E-transactions/3-WordPress/"
+"woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;__e\n"
+"X-Poedit-SearchPath-0: J:/Modules eCommerce/Modules E-transactions/3-"
+"WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-"
+"etransactions\n"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:86
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:167
+msgid "Enable/Disable"
+msgstr "Actif/Inactif"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:88
+msgid "Enable E-Transactions Payment"
+msgstr "Activer le paiement par E-Transactions"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:92
+msgid "Title"
+msgstr "Titre"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:94
+msgid "This controls the title which the user sees during checkout."
+msgstr "Titre visible par le client lors d'une commande"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:98
+msgid "Description"
+msgstr "Description"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:100
+msgid "Payment method description that the customer will see on your checkout."
+msgstr ""
+"Description de la méthode de paiement . Visible par le client lors d'une "
+"commande"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:104
+msgid "Environment"
+msgstr "Environnement"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:106
+msgid "In test mode your payments will not be sent to the bank."
+msgstr "En mode test, vos paiements ne seront pas envoyés à la banque."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:108
+msgid "Production"
+msgstr "Production"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:109
+msgid "Test"
+msgstr "Test"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:114
+msgid "Site number"
+msgstr "Numero du site"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:116
+msgid "Site number provided by E-Transactions."
+msgstr "Le numéro du site vous est fourni par E-Transactions"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:120
+msgid "Rank number"
+msgstr "Rang"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:122
+msgid "Rank number provided by E-Transactions."
+msgstr "Le rang de votre site vous est fourni par E-Transactions"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:126
+msgid "Login"
+msgstr "Identifiant"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:128
+msgid "Internal login provided by E-Transactions."
+msgstr "Votre identifiant vous est fourni par E-Transactions"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:132
+msgid "HMAC"
+msgstr "HMAC"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:134
+msgid "Secrete HMAC key to create using the E-Transactions interface."
+msgstr "Clé secrète HMAC créée dans le Back Office E-Transactions."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:139
+msgid "Debit"
+msgstr "Débit"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:142
+msgid "Immediate"
+msgstr "Immédiat"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:143
+msgid "1 day"
+msgstr "1 jour"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:144
+msgid "2 days"
+msgstr "2 jours"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:145
+msgid "3 days"
+msgstr "3 jours"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:146
+msgid "4 days"
+msgstr "4 jours"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:147
+msgid "5 days"
+msgstr "5 jours"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:148
+msgid "6 days"
+msgstr "6 jours"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:149
+msgid "7 days"
+msgstr "7 jours"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:156
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:179
+msgid "Minimal amount"
+msgstr "Montant minimum"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:158
+msgid ""
+"Enable this payment method for order with amount greater or equals to this "
+"amount (empty to ignore this condition)"
+msgstr ""
+"Activer ce moyen de paiement pour les commandes dont le montant est "
+"supérieur ou égal au montant suivant (laisser vide pour ignorer cette "
+"condition)."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:163
+msgid "3-D Secure"
+msgstr "3-D Secure"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:169
+msgid "Enable 3-D Secure"
+msgstr "Activer 3-D Secure"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:170
+msgid ""
+"You can enable 3-D Secure for all orders or for order with a minimal amount "
+"(conditional)."
+msgstr ""
+"Vous pouvez activer  3-D Secure pour toutes les commandes ou à partir du "
+"montant de commande (sélectif)."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:173
+msgid "Disabled"
+msgstr "Inactif"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:174
+msgid "Enabled"
+msgstr "Actif"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:175
+msgid "Conditional"
+msgstr "Sélectif"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:181
+msgid ""
+"Enable 3-D Secure for order with amount greater or equals to the minimal "
+"amount."
+msgstr ""
+"Activer 3-D Secure pour les commandes dont le montant est supérieur ou égal "
+"au montant minimum. "
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:185
+msgid "Allowed IPs "
+msgstr "Adresses IPs authorisées"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:187
+msgid "A coma separated list of E-Transactions IPs."
+msgstr "Liste des IPs de E-Transactions, séparée par des virgules."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:191
+msgid "Debug"
+msgstr "Debug"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:193
+msgid "Enable some debugging information"
+msgstr "Activer les informations de debuggage"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:207
+msgid "Customer is redirected to E-Transactions payment page"
+msgstr "Le client est redirigé vers la page de paiement E-Transactions"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:233
+msgid "Back..."
+msgstr "Retour.."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:241
+msgid ""
+"This is a debug view. Click continue to be redirected to E-Transactions "
+"payment page."
+msgstr ""
+"Ceci est une vue de debug. Cliquer sur \"continuer\" pour être redirigé vers "
+"la page de paiement E-Transactions."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:245
+msgid ""
+"You will be redirected to the E-Transactions payment page. If not, please "
+"use the button bellow."
+msgstr ""
+"Vous serez redirigé vers la page de paiement E-Transactions. Si ce n'était "
+"pas le cas, merci d'utiliser le bouton ci dessous."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:248
+msgid "Continue..."
+msgstr "Continuer..."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:313
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:351
+msgid "Customer is back from E-Transactions payment page."
+msgstr "Le client revient de la page de paiement E-Transactions."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:314
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:316
+msgid "Payment refused by E-Transactions"
+msgstr "Le paiement a été refusé par E-Transactions"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:333
+msgid "Payment was canceled by user on E-Transactions payment page."
+msgstr ""
+"Le paiement a été annulé par le client sur la page de paiement E-"
+"Transactions."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:335
+msgid "Payment canceled"
+msgstr "Le paiement a été annulé"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:381
+#, php-format
+msgid "IPN call from %s not allowed."
+msgstr "Appel IPN depuis %s non autorisé."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:391
+#, php-format
+msgid "Missing %s parameter in E-Transactions call"
+msgstr "Le paramêtre %s manque dans l'appel E-Transactions"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:401
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:410
+msgid "Payment was authorized and captured by E-Transactions."
+msgstr "Paiement autorisé et capturé par E-Transactions."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:415
+msgid "Second payment was captured by E-Transactions."
+msgstr "Deuxième paiement capturé par E-Transactions."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:419
+msgid "Third payment was captured by E-Transactions."
+msgstr "Troisième paiement capturé par E-Transactions."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:423
+msgid "Invalid three-time payment status"
+msgstr "Statut du paiement en trois fois non valide"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:430
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions.php:304
+#, php-format
+msgid "Unexpected type %s"
+msgstr "Type %s inattendu"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-abstract-gateway.php:440
+#, php-format
+msgid "Payment was refused by E-Transactions (%s)."
+msgstr "Paiement refusé par E-Transactions (%s)."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-encrypt.php:48
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-encrypt.php:63
+msgid ""
+"For some reason, the key has just been generated. please reenter the HMAC "
+"key to crypt it."
+msgstr ""
+"Pour une raison inconnue, la clé vient d'être générée. SVP entrez à nouveau "
+"la clé secrète HMAC afin de la crypter à nouveau."
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:9
+msgid "E-Transactions Epayment"
+msgstr "E-Transactions Epayment"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:32
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:58
+msgid "Reference:"
+msgstr "Référence :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:34
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:60
+msgid "Country of IP:"
+msgstr "Pays de l'IP :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:36
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:62
+msgid "Processing date:"
+msgstr "Date de traitement :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:38
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:64
+msgid "Card numbers:"
+msgstr "Numéros de carte :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:41
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:67
+msgid "Validity date:"
+msgstr "Date de validité :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:43
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:92
+msgid "Transaction:"
+msgstr "Transaction :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:44
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:93
+msgid "Call:"
+msgstr "Appel :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:45
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:94
+msgid "Authorization:"
+msgstr "Autorisation :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-standard-gateway.php:47
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:96
+msgid "Payment information"
+msgstr "Information de paiement"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:9
+msgid "E-Transactions 3X"
+msgstr "E-Transactions 3x sans frais"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:72
+msgid "First debit:"
+msgstr "Premier paiement :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:79
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:88
+msgid "Not achieved"
+msgstr "Non réalisé"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:81
+msgid "Second debit:"
+msgstr "Deuxième débit :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions-threetime-gateway.php:90
+msgid "Third debit:"
+msgstr "Troisième débit :"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions.php:323
+#, php-format
+msgid "Unexpected 3-D Secure status %s"
+msgstr "Satut 3-D Secure %s inattendu"
+
+#: J:/Modules eCommerce/Modules
+#: E-transactions/3-WordPress/woocommerce/woocommerce-etransactions-0.9.6.6/woocommerce-etransactions/class/wc-etransactions.php:525
+msgid "E-Transactions not available. Please try again later."
+msgstr "E-Transactions n'est pas disponible. Merci d'essayer plus tard."
+
+#~ msgid "Card country:"
+#~ msgstr "Pays de la carte :"
+
+#~ msgid "E-Transactions 3 times"
+#~ msgstr "E-Transactions paiement en trois fois"
+
+#~ msgid "Delay"
+#~ msgstr "Délai"
+
+#~ msgid "E-Transactions account"
+#~ msgstr "Compte E-Transactions"
+
+#~ msgid "Technical settings"
+#~ msgstr "Configuration technique"
+
+#~ msgid "Depending on following conditions (and)"
+#~ msgstr "Suivant les conditions ci-dessous (et)"
+
+#~ msgid "Depending on following conditions (or)"
+#~ msgstr "Suivant les conditions ci-dessous (ou)"
+
+#~ msgid "Maximal order count"
+#~ msgstr "Nombre maximal de commande"
+
+#~ msgid ""
+#~ "Enable 3D Secure for customer with less than this number of orders (empty "
+#~ "to ignore this condition)"
+#~ msgstr ""
+#~ "Activer 3D Secure pour les clients ayant passé moins de  for customer "
+#~ "with less than this number of orders (laisser vide pour ignorer cette "
+#~ "condition)"
+
+#~ msgid "TODO"
+#~ msgstr "TODO"
