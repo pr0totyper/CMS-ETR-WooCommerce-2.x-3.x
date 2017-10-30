@@ -1,6 +1,6 @@
 <?php
 
-class WC_ETRANSACTIONS {
+class WC_Etransactions {
 	private $_config;
 	private $_currencyDecimals = array(
         '008' => 2,
@@ -221,7 +221,7 @@ class WC_ETRANSACTIONS {
 		'Z' => 'paymentIndex',
 	);
 
-	public function __construct(WC_etransactions_Config $config) {
+	public function __construct(WC_Etransactions_Config $config) {
 		$this->_config = $config;
 	}
 
@@ -241,8 +241,7 @@ class WC_ETRANSACTIONS {
 			'data' => serialize($data),
 		));
 	}
-
-
+	
 
 	/**
 	 * @params WC_Order $order Order
@@ -388,7 +387,9 @@ class WC_ETRANSACTIONS {
 		$name = trim(preg_replace('/[^-. a-zA-Z0-9]/', '', $name));
 		return $name;
 	}
-
+	
+	
+	
 	public function getClientIp() {
 		$ipaddress = '';
 		if ($_SERVER['HTTP_CLIENT_IP'])
@@ -410,7 +411,7 @@ class WC_ETRANSACTIONS {
 	}
 
 	public function getCurrency() {
-		return WC_etransactions_Iso4217Currency::getIsoCode(get_woocommerce_currency());
+		return WC_Etransactions_Iso4217Currency::getIsoCode(get_woocommerce_currency());
 	}
 
 	public function getLanguages() {
@@ -535,6 +536,7 @@ class WC_ETRANSACTIONS {
 			$params[] = $name.'='.$value;
 		}
 		$query = implode('&', $params);
+
 		// Prepare key
 		$key = pack('H*', $this->_config->getHmacKey());
 

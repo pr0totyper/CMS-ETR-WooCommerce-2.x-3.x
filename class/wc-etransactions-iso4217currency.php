@@ -1,6 +1,6 @@
 <?php
 
-class WC_etransactions_Iso4217Currency {
+class WC_Etransactions_Iso4217Currency {
 
 	private static $_mapping = array(
 		'AED' => '784',
@@ -183,8 +183,8 @@ class WC_etransactions_Iso4217Currency {
 	);
 
 	public static function getIsoCode($code, $default = null) {
-		if (isset(WC_etransactions_Iso4217Currency::$_mapping[$code])) {
-			return WC_etransactions_Iso4217Currency::$_mapping[$code];
+		if (isset(WC_Etransactions_Iso4217Currency::$_mapping[$code])) {
+			return WC_Etransactions_Iso4217Currency::$_mapping[$code];
 		}
 		return $default;
 	}

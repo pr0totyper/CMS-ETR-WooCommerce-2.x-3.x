@@ -1,23 +1,20 @@
 <?php
 
-class WC_etransactions_Standard_Gateway extends WC_etransactions_Abstract_Gateway {
-	protected $defaultTitle;
-	protected $defaultDesc = '';
+class WC_Etransactions_Standard_Gateway extends WC_Etransactions_Abstract_Gateway {
+	protected $defaultTitle = 'E-Transactions payment';
+	protected $defaultDesc = 'xxxx';
 	protected $type = 'standard';
 
 	public function __construct() {
-		$this->defaultTitle = __('E-Transactions Epayment', WC_ETRANSACTIONS_PLUGIN);
-
 		// Some properties
 		$this->id = 'etransactions_std';
-		$this->method_title = $this->defaultTitle;
+		$this->method_title = __('E-Transactions', WC_ETRANSACTIONS_PLUGIN);
 		$this->has_fields = false;
 		//$this->icon = TODO;
 		//$this->icon              = apply_filters( 'woocommerce_paypal_icon', WC()->plugin_url() . '/assets/images/icons/paypal.png' );
 
 		parent::__construct();
 	}
-
 	private function _showDetailRow($label, $value) {
 		return '<strong>'.$label.'</strong> '.__($value, WC_ETRANSACTIONS_PLUGIN);
 	}
@@ -48,4 +45,5 @@ class WC_etransactions_Standard_Gateway extends WC_etransactions_Abstract_Gatewa
 			echo '<p>'.implode('<br/>', $rows).'</p>';
 		}
 	}
+
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * E-Transactions PrestaShop Module
+ * E-Transactions WooCommerce Module
  *
  * Feel free to contact E-Transactions at support@e-transactions.fr for any
  * question.
@@ -108,7 +108,7 @@ class ETransactionsEncrypt {
 	 * Decrypt $data using 3DES
 	 * @param string $data The data to decrypt
 	 * @return string The result of decryption
-	 * @see ETRANSACTIONS_Epayment_Helper_Encrypt::_getKey()
+	 * @see PAYBOX_Epayment_Helper_Encrypt::_getKey()
 	 */
 	public function decrypt($data)
 	{

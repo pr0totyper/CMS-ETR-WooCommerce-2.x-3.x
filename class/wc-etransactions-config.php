@@ -1,6 +1,6 @@
 <?php
 
-class WC_etransactions_Config {
+class WC_Etransactions_Config {
 	private $_values;
 	private $_defaults = array(
 		'3ds_enabled' => 'always',
@@ -10,18 +10,18 @@ class WC_etransactions_Config {
 		'delay' => 0,
 		'environment' => 'TEST',
 		'hmackey' => '4642EDBBDFF9790734E673A9974FC9DD4EF40AA2929925C40B3A95170FF5A578E7D2579D6074E28A78BD07D633C0E72A378AD83D4428B0F3741102B69AD1DBB0',
-		'identifier' => 259207933,
+		'identifier' => 3262411,
 		'ips' => '194.2.122.158,195.25.7.166,195.101.99.76',
 		'rank' => 95,
 		'site' => 9999999,
 	);
-	
+
 	public function __construct(array $values, $defaultTitle, $defaultDesc) {
 		$this->_values = $values;
 		$this->_defaults['title'] = $defaultTitle;
 		$this->_defaults['description'] = $defaultDesc;
 	}
-	
+
 	protected function _getOption($name) {
 		if (isset($this->_values[$name])) {
 			return $this->_values[$name];
@@ -41,13 +41,13 @@ class WC_etransactions_Config {
 		return empty($value) ? null : floatval($value);
 	}
 
-	public function getAllowedIps() {
-		return explode(',', $this->_getOption('ips'));
-	}
-
 	public function getAmount() {
 		$value = $this->_getOption('amount');
 		return empty($value) ? null : floatval($value);
+	}
+
+	public function getAllowedIps() {
+		return explode(',', $this->_getOption('ips'));
 	}
 
 	public function getDefaults() {
@@ -85,14 +85,14 @@ class WC_etransactions_Config {
 
 	public function getSystemProductionUrls() {
 		return array(
-			'https://tpeweb.e-transactions.fr/php/',
-			'https://tpeweb1.e-transactions.fr/php/',
+			'https://tpeweb.e-transactions.fr/cgi/MYchoix_pagepaiement.cgi',
+			'https://tpeweb1.e-transactions.fr/cgi/MYchoix_pagepaiement.cgi',
 		);
 	}
 
 	public function getSystemTestUrls() {
 		return array(
-			'https://preprod-tpeweb.e-transactions.fr/php/'
+			'https://preprod-tpeweb.e-transactions.fr/cgi/MYchoix_pagepaiement.cgi'
 		);
 	}
 

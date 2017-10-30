@@ -1,16 +1,14 @@
 <?php
 
-class WC_etransactions_Threetime_Gateway extends WC_etransactions_Abstract_Gateway {
-	protected $defaultTitle;
-	protected $defaultDesc = '';
+class WC_Etransactions_Threetime_Gateway extends WC_Etransactions_Abstract_Gateway {
+	protected $defaultTitle = 'E-Transactions 3 times payment';
+	protected $defaultDesc = 'xxxx';
 	protected $type = 'threetime';
 
 	public function __construct() {
-		$this->defaultTitle = __('E-Transactions 3X', WC_ETRANSACTIONS_PLUGIN);
-
 		// Some properties
 		$this->id = 'etransactions_3x';
-		$this->method_title = $this->defaultTitle;
+		$this->method_title = __('E-Transactions 3 times', WC_ETRANSACTIONS_PLUGIN);
 		$this->has_fields = false;
 		//$this->icon = TODO;
 
@@ -59,7 +57,7 @@ class WC_etransactions_Threetime_Gateway extends WC_etransactions_Abstract_Gatew
 			if (isset($data['ip'])) {
 				$rows[] = $this->_showDetailRow(__('Country of IP:', WC_ETRANSACTIONS_PLUGIN), $data['ip']);
 			}
-			$rows[] = $this->_showDetailRow(__('Processing date:', WC_ETRANSACTIONS_PLUGIN), preg_replace('/^([0-9]{2})([0-9]{2})([0-9]{4})$/', '$1/$2/$3', $data['date']));
+			$rows[] = $this->_showDetailRow(__('Processing date:', WC_ETRANSACTIONS_PLUGIN), preg_replace('/^([0-9]{2})([0-9]{2})([0-9]{4})$/', '$1/$2/$3', $data['date'])." - ".$data['time']);
 			if (isset($data['firstNumbers']) && isset($data['lastNumbers'])) {
 				$rows[] = $this->_showDetailRow(__('Card numbers:', WC_ETRANSACTIONS_PLUGIN), $data['firstNumbers'].'...'.$data['lastNumbers']);
 			}
@@ -97,5 +95,4 @@ class WC_etransactions_Threetime_Gateway extends WC_etransactions_Abstract_Gatew
 			echo '<p>'.implode('<br/>', $rows).'</p>';
 		}
 	}
-
 }
