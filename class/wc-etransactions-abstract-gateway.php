@@ -21,8 +21,11 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
         $this->_config = new WC_Etransactions_Config($this->settings, $this->defaultTitle, $this->defaultDesc);
         $this->_etransactions = new WC_Etransactions($this->_config);
 
-        $this->title = $this->_config->getTitle();
-        $this->description = $this->_config->getDescription();
+        // $this->title = $this->_config->getTitle();
+        // $this->description = $this->_config->getDescription();
+
+        $this->title = apply_filters('title',$this->_config->getTitle());
+        $this->description = apply_filters('description',$this->_config->getDescription());
 
         // Actions
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
@@ -230,10 +233,10 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
             );
         } else {
             $urls = array(
-                'PBX_ANNULE' => network_site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'cancel'))),
-                'PBX_EFFECTUE' => network_site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'success'))),
-                'PBX_REFUSE' => network_site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'failed'))),
-                'PBX_REPONDRE_A' => network_site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'ipn'))),
+                'PBX_ANNULE' => site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'cancel'))),
+                'PBX_EFFECTUE' => site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'success'))),
+                'PBX_REFUSE' => site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'failed'))),
+                'PBX_REPONDRE_A' => site_url(add_query_arg('wc-api', get_class($this), add_query_arg('status', 'ipn'))),
             );
         }
 

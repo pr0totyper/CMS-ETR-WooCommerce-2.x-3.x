@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce E-Transactions Payment plugin
  * Description: E-Transactions gateway payment plugins for WooCommerce
- * Version: 0.9.8
+ * Version: 0.9.8.3
  * Author: E-Transactions
  * Author URI: http://www.e-transactions.fr
  * 
@@ -30,7 +30,7 @@ if (!wooCommerceActiveET()) {
 }
 
 define('WC_ETRANSACTIONS_PLUGIN', 'woocommerce-etransactions');
-define('WC_ETRANSACTIONS_VERSION', '0.9.8');
+define('WC_ETRANSACTIONS_VERSION', '0.9.8.3');
 define('WC_ETRANSACTIONS_KEY_PATH', ABSPATH . '/kek.php');
 
 

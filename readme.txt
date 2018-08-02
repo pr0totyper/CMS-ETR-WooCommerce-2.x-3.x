@@ -3,12 +3,12 @@ Contributors: E-Transactions
 Donate link: none
 Tags: Payment Gateway, Orders, woocommerce, e-commerce, payment, E-Transactions
 Requires at least: 3.0.1
-Tested up to: 4.8.2
-Stable tag: 0.9.8
+Tested up to: 4.9.8rc3
+Stable tag: 0.9.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC requires at least: 2.6
-WC tested up to: 3.1.2
+WC tested up to: 3.4.4
 This plugin is a E-Transactions payment gateway for WooCommerce 2.x
 
 == Description ==
@@ -65,6 +65,16 @@ Contact [E-Transactions WordPress Support](mailto:support@e-transactions.fr "Wor
 4. The Payment Means choice (hosted at E-Transactions)
 5. The Payment page
 6. Once successfully processed, the Payment transaction details appear in the order details
+
+== Changelog ==
+= 0.9.8.3 =
+Correction for potential HTTP 500 error: thx @.
+
+= 0.9.8.2 =
+Correction for network urls, order properties calling.
+
+= 0.9.8.1 =
+Correction of url called, to work for mobile.
 
 == Changelog ==
 = 0.9.8 =

@@ -262,7 +262,7 @@ class WC_Etransactions {
 		// Order information
 		$values['PBX_PORTEUR'] = $this->getBillingEmail($order);
 		$values['PBX_DEVISE'] = $this->getCurrency();
-		$values['PBX_CMD'] = $order->id.' - '.$this->getBillingName($order);
+		$values['PBX_CMD'] = $order->get_id().' - '.$this->getBillingName($order);
 
 		// Amount
 		$orderAmount = floatval($order->order_total);
@@ -378,11 +378,11 @@ class WC_Etransactions {
 	}
 
 	public function getBillingEmail(WC_Order $order) {
-		return $order->billing_email;
+		return $order->get_billing_email();
 	}
 
 	public function getBillingName(WC_Order $order) {
-		$name = $order->billing_first_name.' '.$order->billing_last_name;
+		$name = $order->get_billing_first_name().' '.$order->get_billing_last_name();
 		$name = remove_accents($name);
 		$name = trim(preg_replace('/[^-. a-zA-Z0-9]/', '', $name));
 		return $name;
@@ -573,7 +573,8 @@ class WC_Etransactions {
 
 		// Retrieves order
 		$order = new WC_Order($parts[0]);
-		if (empty($order->id)) {
+		$temp_id=$order->get_id();
+		if (empty($temp_id)) {
 			$message = 'Not existing order id from decrypted token "%s"';
 			throw new Exception(sprintf(__($message, WC_ETRANSACTIONS_PLUGIN), $token));
 		}
