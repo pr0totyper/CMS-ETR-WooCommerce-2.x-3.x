@@ -236,7 +236,7 @@ class WC_Etransactions {
 	public function addOrderPayment(WC_Order $order, $type, array $data) {
 		global $wpdb;
 		$wpdb->insert($wpdb->prefix.'wc_etransactions_payment', array(
-			'order_id' => $order->id,
+			'order_id' => $order->get_id(),
 			'type' => $type,
 			'data' => serialize($data),
 		));
@@ -265,7 +265,7 @@ class WC_Etransactions {
 		$values['PBX_CMD'] = $order->get_id().' - '.$this->getBillingName($order);
 
 		// Amount
-		$orderAmount = floatval($order->order_total);
+		$orderAmount = floatval($order->get_total());
 		$amountScale = $this->_currencyDecimals[$values['PBX_DEVISE']];
 		$amountScale = pow(10, $amountScale);
 		switch ($type) {
@@ -498,6 +498,7 @@ class WC_Etransactions {
 				'timeout' => 5,
 				'redirection' => 0,
 				'user-agent' => 'Woocommerce E-Transactions module',
+				'httpversion' => '2',
 			);
 			try {
 				$response = wp_remote_get($testUrl, $connectParams);

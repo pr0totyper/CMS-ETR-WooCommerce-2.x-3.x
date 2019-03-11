@@ -39,7 +39,7 @@ class WC_Etransactions_Threetime_Gateway extends WC_Etransactions_Abstract_Gatew
 	}
 
 	public function showDetails($order) {
-		$orderId = $order->id;
+		$orderId = $order->get_id();
 		$payment = $this->_etransactions->getOrderPayments($orderId, 'first_payment');
 		if (!empty($payment)) {
 			$data = unserialize($payment->data);

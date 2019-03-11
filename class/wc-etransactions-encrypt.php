@@ -20,6 +20,22 @@
  * */
 
 class ETransactionsEncrypt {
+	/*IV generation */
+	private function _MakeIv($key){
+		if(function_exists('mcrypt_module_open')){
+			//mcrypt
+			$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+			$size = mcrypt_enc_get_iv_size($td);
+			$iv = mcrypt_create_iv($size, MCRYPT_RAND);
+		}else{
+			//openssl
+			$len =  openssl_cipher_iv_length ( 'AES-128-CBC' );
+			$strong_crypto = true;
+			$iv = openssl_random_pseudo_bytes($len, $strong_crypto);
+		}
+		return bin2hex($iv);
+
+	}
 	/*
 	 * You can change this method 
 	 if you want to change the way the key is generated.
@@ -29,13 +45,8 @@ class ETransactionsEncrypt {
 		$key = openssl_random_pseudo_bytes(16);
 		if(file_exists(WC_ETRANSACTIONS_KEY_PATH))unlink(WC_ETRANSACTIONS_KEY_PATH);
 		$key = bin2hex($key);
-		$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
-		$size = mcrypt_enc_get_iv_size($td);
-    	$iv = mcrypt_create_iv($size, MCRYPT_RAND);
-		$iv = bin2hex($iv);
-		file_put_contents(WC_ETRANSACTIONS_KEY_PATH,"<?php" . $key.$iv ."?>");
-		// Init vector
-		
+		$iv = $this->_MakeIv($key);
+		return file_put_contents(WC_ETRANSACTIONS_KEY_PATH,"<?php" . $key.$iv);	
 	}
 	/**
 	 * @return string Key used for encryption
@@ -43,10 +54,12 @@ class ETransactionsEncrypt {
 	 private function _getKey()
 	{
 		//check whether key on KEY_FILE_PATH exists, if not generate it.
+		$ok = true;
 		if(!file_exists(WC_ETRANSACTIONS_KEY_PATH)){
-			$this->generateKey();
+			$ok = $this->generateKey();
 			$_POST['KEY_ERROR'] = __("For some reason, the key has just been generated. please reenter the HMAC key to crypt it.");
-		}else{
+		}
+		if($ok!==false){
 			$key = file_get_contents(WC_ETRANSACTIONS_KEY_PATH);
 			$key = substr($key,5,32);
 			return $key;
@@ -67,7 +80,22 @@ class ETransactionsEncrypt {
 			return $iv;
 		}
 	}
+	private function _crypt($key,$iv,$data){
+			if(function_exists('mcrypt_module_open')){
+				// Prepare mcrypt
+				$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+				mcrypt_generic_init($td, $key, $iv);
+				// Encrypt 
+				$result =  mcrypt_generic($td, $data);
+			}else{
+				//openssl
+				$result = openssl_encrypt($data, 'aes-128-cbc', $key, OPENSSL_RAW_DATA , $iv);
+			}
+			// Encode (to avoid data loose when saved to database or
+			// any storage that does not support null chars)
+			return base64_encode($result);
 
+	}
 	/**
 	 * Encrypt $data using AES
 	 * @param string $data The data to encrypt
@@ -81,8 +109,6 @@ class ETransactionsEncrypt {
 		// First encode data to base64 (see end of descrypt)
 		$data = base64_encode($data);
 
-		// Prepare mcrypt
-		$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
 
 		// Prepare key
 		$key = $this->_getKey();
@@ -92,18 +118,25 @@ class ETransactionsEncrypt {
 		}
 		// Init vector
 		$iv = $this->_getIv();
-		mcrypt_generic_init($td, $key, $iv);
 
-		// Encrypt 
-    	$result = mcrypt_generic($td, $data);
-
-    	// Encode (to avoid data loose when saved to database or
-    	// any storage that does not support null chars)
-    	$result = base64_encode($result);
-		return $result;
+    	return $this->_crypt($key,$iv,$data);
 		
 	}
-
+	private function _decrypt($key,$iv,$data){
+		if(function_exists('mcrypt_module_open')){
+			// Prepare mcrypt
+			$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+			mcrypt_generic_init($td, $key, $iv);
+			// Decrypt
+			$result = mdecrypt_generic($td, $data);
+		}else{
+			//openssl
+			$result = openssl_decrypt($data, 'aes-128-cbc', $key, OPENSSL_RAW_DATA , $iv);
+		}
+		// Decode data
+		return base64_decode($result);
+		
+	}
 	/**
 	 * Decrypt $data using 3DES
 	 * @param string $data The data to decrypt
@@ -119,8 +152,6 @@ class ETransactionsEncrypt {
 		// First decode encrypted message (see end of encrypt)
 		$data = base64_decode($data);
 
-		// Prepare mcrypt
-		$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
 
 		// Prepare key
 		$key = $this->_getKey();
@@ -130,17 +161,11 @@ class ETransactionsEncrypt {
 		}
 		// Init vector
 		$iv = $this->_getIv();
-		mcrypt_generic_init($td, $key, $iv);
-
-		// Decrypt
-    	$result = mdecrypt_generic($td, $data);
-
+		$result = $this->_decrypt($key,$iv,$data);
     	// Remove any null char (data is base64 encoded so no data loose)
     	$result = rtrim($result, "\0");
 
-    	// Decode data
-    	$result = base64_decode($result);
 
-    	return $result;
+    	return $this->_decrypt($key,$iv,$data);
 	}
 }

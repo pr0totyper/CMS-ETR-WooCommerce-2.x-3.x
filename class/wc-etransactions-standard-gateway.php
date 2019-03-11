@@ -20,7 +20,7 @@ class WC_Etransactions_Standard_Gateway extends WC_Etransactions_Abstract_Gatewa
 	}
 
 	public function showDetails($order) {
-		$orderId = $order->id;
+		$orderId = $order->get_id();
 		$payment = $this->_etransactions->getOrderPayments($orderId, 'capture');
 
 		if (!empty($payment)) {
