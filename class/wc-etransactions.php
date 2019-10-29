@@ -197,7 +197,7 @@ class WC_Etransactions {
 	private $_resultMapping = array(
 		'M' => 'amount',
 		'R' => 'reference',
-		'T' => 'transaction',
+		'T' => 'call',
 		'A' => 'authorization',
 		'B' => 'subscription',
 		'C' => 'cardType',
@@ -214,7 +214,7 @@ class WC_Etransactions {
 		'o' => 'celetemType',
 		'P' => 'paymentType',
 		'Q' => 'time',
-		'S' => 'call',
+		'S' => 'transaction',
 		'U' => 'subscriptionData',
 		'W' => 'date',
 		'Y' => 'country',
