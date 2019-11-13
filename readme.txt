@@ -2,13 +2,14 @@
 Contributors: E-Transactions
 Donate link: none
 Tags: Payment Gateway, Orders, woocommerce, e-commerce, payment, E-Transactions
-Requires at least: 3.0.1
-Tested up to: 5.0-beta5
+Requires at least: 4.6
+Requires PHP: 5.6.0
+Tested up to: 5.2.4
 Stable tag: 0.9.8.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC requires at least: 2.6
-WC tested up to: 3.5.1
+WC tested up to: 3.7.1
 This plugin is a E-Transactions payment gateway for WooCommerce 2.x
 
 == Description ==
