@@ -4,7 +4,7 @@ Donate link: none
 Tags: Payment Gateway, Orders, woocommerce, e-commerce, payment, E-Transactions
 Requires at least: 3.0.1
 Tested up to: 5.0-beta5
-Stable tag: 0.9.8.5
+Stable tag: 0.9.8.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC requires at least: 2.6
@@ -67,6 +67,9 @@ Contact [E-Transactions WordPress Support](mailto:support@e-transactions.fr "Wor
 6. Once successfully processed, the Payment transaction details appear in the order details
 
 == Changelog ==
+= 0.9.8.6 =
+Fixing various bugs: transaction/call mixup, Minimum amount label.
+
 = 0.9.8.5 =
 adding HTTP/2 compatibility.
 
