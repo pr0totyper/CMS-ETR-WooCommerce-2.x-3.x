@@ -79,11 +79,11 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
             'description' => __('This controls the title which the user sees during checkout.', 'woocommerce'),
             'default' => __($defaults['title'], WC_ETRANSACTIONS_PLUGIN),
         );
-		$allFiles = scandir( plugin_dir_path( __DIR__ ) .'images/');	
+		$allFiles = scandir( plugin_dir_path( __DIR__ ) .'images/');
 		$fileList = array();
 		foreach($allFiles as $id=>$file){
 			if (in_array( explode(".",$file)[1], array('png','jpg','gif','svg'))){
-				
+
 				$fileList[$file]=$file;
 			}
 		}
@@ -335,10 +335,12 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
             $params = $this->_etransactions->getParams();
 
             if ($params !== false) {
+                /*
                 $order = $this->_etransactions->untokenizeOrder($params['reference']);
                 $message = __('Customer is back from E-Transactions payment page.', WC_ETRANSACTIONS_PLUGIN);
                 $message .= ' ' . __('Payment refused by E-Transactions', WC_ETRANSACTIONS_PLUGIN);
                 $order->cancel_order($message);
+                */
                 $message = __('Payment refused by E-Transactions', WC_ETRANSACTIONS_PLUGIN);
                 $this->_etransactions->addCartErrorMessage($message);
             }
@@ -346,25 +348,28 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
             // Ignore
         }
 
-        $this->redirectToCheckout();
+        $this->redirectToOrders();
+        // $this->redirectToCheckout();
     }
 
     public function on_payment_canceled() {
         try {
-            $params = $this->_etransactions->getParams();
+            // $params = $this->_etransactions->getParams();
 
-            if ($params !== false) {
+            /*if ($params !== false) {
+
                 $order = $this->_etransactions->untokenizeOrder($params['reference']);
                 $message = __('Payment was canceled by user on E-Transactions payment page.', WC_ETRANSACTIONS_PLUGIN);
                 $order->cancel_order($message);
-                $message = __('Payment canceled', WC_ETRANSACTIONS_PLUGIN);
-                $this->_etransactions->addCartErrorMessage($message);
-            }
+                */
+            $message = __('Payment canceled', WC_ETRANSACTIONS_PLUGIN);
+            $this->_etransactions->addCartErrorMessage($message);
+            // }
         } catch (Exception $e) {
             // Ignore
         }
-
-        $this->redirectToCheckout();
+        $this->redirectToOrders();
+        // $this->redirectToCheckout();
     }
 
     public function on_payment_succeed() {
@@ -471,11 +476,16 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
         }
     }
 
+    public function redirectToOrders() {
+        wp_redirect(get_permalink( get_option('woocommerce_myaccount_page_id') ) . wc_get_endpoint_url( 'orders' ));
+        die();
+    }
+
     public function redirectToCheckout() {
         wp_redirect(WC()->cart->get_cart_url());
         die();
     }
-	
+
 	public function checkCrypto(){
 		$crypt = new ETransactionsEncrypt();
         return $crypt->decrypt($this->settings['hmackey']);
