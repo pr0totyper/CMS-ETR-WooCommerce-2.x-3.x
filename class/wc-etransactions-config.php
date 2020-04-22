@@ -4,6 +4,7 @@ class WC_Etransactions_Config {
 	private $_values;
 	private $_defaults = array(
 		'3ds_enabled' => 'always',
+		'icon' => 'cbvisamcecb.png',
 		'3ds_amount' => '',
 		'amount' => '',
 		'debug' => 'no',
@@ -105,6 +106,10 @@ class WC_Etransactions_Config {
 
 	public function getTitle() {
 		return $this->_getOption('title');
+	}
+
+	public function getIcon() {
+		return $this->_getOption('icon');
 	}
 
 	public function isDebug() {

@@ -10,7 +10,7 @@ class WC_Etransactions_Standard_Gateway extends WC_Etransactions_Abstract_Gatewa
 		$this->id = 'etransactions_std';
 		$this->method_title = __('E-Transactions', WC_ETRANSACTIONS_PLUGIN);
 		$this->has_fields = false;
-		//$this->icon = TODO;
+		$this->icon = 'cbvisamcecb.png';
 		//$this->icon              = apply_filters( 'woocommerce_paypal_icon', WC()->plugin_url() . '/assets/images/icons/paypal.png' );
 
 		parent::__construct();

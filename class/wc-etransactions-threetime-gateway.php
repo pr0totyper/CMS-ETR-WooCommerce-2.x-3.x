@@ -10,6 +10,7 @@ class WC_Etransactions_Threetime_Gateway extends WC_Etransactions_Abstract_Gatew
 		$this->id = 'etransactions_3x';
 		$this->method_title = __('E-Transactions 3 times', WC_ETRANSACTIONS_PLUGIN);
 		$this->has_fields = false;
+		$this->icon = '3xcbvisamcecb.png';
 		//$this->icon = TODO;
 
 		parent::__construct();

@@ -22,16 +22,16 @@
 class ETransactionsEncrypt {
 	/*IV generation */
 	private function _MakeIv($key){
-		if(function_exists('mcrypt_module_open')){
-			//mcrypt
-			$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
-			$size = mcrypt_enc_get_iv_size($td);
-			$iv = mcrypt_create_iv($size, MCRYPT_RAND);
-		}else{
+		if(function_exists('openssl_cipher_iv_length')){
 			//openssl
 			$len =  openssl_cipher_iv_length ( 'AES-128-CBC' );
 			$strong_crypto = true;
 			$iv = openssl_random_pseudo_bytes($len, $strong_crypto);
+		}else{
+			//mcrypt
+			$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+			$size = mcrypt_enc_get_iv_size($td);
+			$iv = mcrypt_create_iv($size, MCRYPT_RAND);
 		}
 		return bin2hex($iv);
 
@@ -81,15 +81,15 @@ class ETransactionsEncrypt {
 		}
 	}
 	private function _crypt($key,$iv,$data){
-			if(function_exists('mcrypt_module_open')){
+			if(function_exists('openssl_encrypt')){
+				//openssl
+				$result = openssl_encrypt($data, 'aes-128-cbc', $key, OPENSSL_RAW_DATA , $iv);
+			}else{
 				// Prepare mcrypt
 				$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
 				mcrypt_generic_init($td, $key, $iv);
 				// Encrypt 
 				$result =  mcrypt_generic($td, $data);
-			}else{
-				//openssl
-				$result = openssl_encrypt($data, 'aes-128-cbc', $key, OPENSSL_RAW_DATA , $iv);
 			}
 			// Encode (to avoid data loose when saved to database or
 			// any storage that does not support null chars)
@@ -123,15 +123,22 @@ class ETransactionsEncrypt {
 		
 	}
 	private function _decrypt($key,$iv,$data){
-		if(function_exists('mcrypt_module_open')){
+		if(function_exists('openssl_decrypt')){
+			//openssl
+			$result = openssl_decrypt($data, 'aes-128-cbc', $key, OPENSSL_RAW_DATA , $iv);
+			if(!$result && function_exists('mcrypt_module_open')){
+				$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+				mcrypt_generic_init($td, $key, $iv);
+				// Decrypt
+				$result = mdecrypt_generic($td, $data);
+			}
+			if(!$result) show_message(new WP_Error("","","ATTENTION:le module ne peut plus afficher la clef HMAC, veuillez l'initiailiser de nouveau."));
+		}else{
 			// Prepare mcrypt
 			$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
 			mcrypt_generic_init($td, $key, $iv);
 			// Decrypt
 			$result = mdecrypt_generic($td, $data);
-		}else{
-			//openssl
-			$result = openssl_decrypt($data, 'aes-128-cbc', $key, OPENSSL_RAW_DATA , $iv);
 		}
 		// Decode data
 		return base64_decode($result);
@@ -165,7 +172,6 @@ class ETransactionsEncrypt {
     	// Remove any null char (data is base64 encoded so no data loose)
     	$result = rtrim($result, "\0");
 
-
-    	return $this->_decrypt($key,$iv,$data);
+    	return $result;
 	}
 }

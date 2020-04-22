@@ -26,7 +26,8 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
 
         $this->title = apply_filters('title',$this->_config->getTitle());
         $this->description = apply_filters('description',$this->_config->getDescription());
-
+		$this->icon = apply_filters( WC_ETRANSACTIONS_PLUGIN, plugin_dir_url(__DIR__).'images/')
+				.apply_filters('icon',$this->_config->getIcon());
         // Actions
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
         add_action('woocommerce_receipt_' . $this->id, array($this, 'receipt_page'));
@@ -77,6 +78,21 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
             'type' => 'text',
             'description' => __('This controls the title which the user sees during checkout.', 'woocommerce'),
             'default' => __($defaults['title'], WC_ETRANSACTIONS_PLUGIN),
+        );
+		$allFiles = scandir( plugin_dir_path( __DIR__ ) .'images/');	
+		$fileList = array();
+		foreach($allFiles as $id=>$file){
+			if (in_array( explode(".",$file)[1], array('png','jpg','gif','svg'))){
+				
+				$fileList[$file]=$file;
+			}
+		}
+        $this->form_fields['icon'] = array(
+            'title' => __('Icon file', WC_ETRANSACTIONS_PLUGIN),
+            'type' => 'select',
+            'description' => __('Icon file to be displayed to customers. file are located in: ', WC_ETRANSACTIONS_PLUGIN).apply_filters( WC_ETRANSACTIONS_PLUGIN, ''.plugin_dir_url(__DIR__).'images/'),
+            'default' => __($defaults['icon'], WC_ETRANSACTIONS_PLUGIN),
+			'options' => $fileList,
         );
         $this->form_fields['description'] = array(
             'title' => __('Description', 'woocommerce'),
@@ -459,6 +475,11 @@ abstract class WC_Etransactions_Abstract_Gateway extends WC_Payment_Gateway {
         wp_redirect(WC()->cart->get_cart_url());
         die();
     }
+	
+	public function checkCrypto(){
+		$crypt = new ETransactionsEncrypt();
+        return $crypt->decrypt($this->settings['hmackey']);
+	}
 
     public abstract function showDetails($orderId);
 }
