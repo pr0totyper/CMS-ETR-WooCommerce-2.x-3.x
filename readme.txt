@@ -1,10 +1,10 @@
-=== E-Transactions WooCommerce Payment Gateway ===
+﻿=== E-Transactions WooCommerce Payment Gateway ===
 Contributors: E-Transactions
 Donate link: none
 Tags: Payment Gateway, Orders, woocommerce, e-commerce, payment, E-Transactions
 Requires at least: 3.0.1
 Tested up to: 5.3.2
-Stable tag: 0.9.8.7
+Stable tag: 0.9.8.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC requires at least: 2.6
@@ -67,6 +67,9 @@ Contact [E-Transactions WordPress Support](mailto:support@e-transactions.fr "Wor
 6. Once successfully processed, the Payment transaction details appear in the order details
 
 == Changelog ==
+= 0.9.8.8 =
+fixing Woocommerce active detection mechanism
+
 = 0.9.8.7 =
 fixing mcrypt deprecation when goin with php > 7.1.x + translations and adding icon for payment means
 

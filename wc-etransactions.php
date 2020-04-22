@@ -2,7 +2,7 @@
 /**
  * Plugin Name: E-Transactions
  * Description: E-Transactions gateway payment plugins for WooCommerce
- * Version: 0.9.8.7
+ * Version: 0.9.8.8
  * Author: E-Transactions
  * Author URI: http://www.e-transactions.fr
  * Text Domain: wc-etransactions
@@ -27,19 +27,15 @@ if (!defined('ABSPATH')) {
 	}
 	
 function wooCommerceActiveETwp(){
-	$wooCommerceActiveET = (in_array('woocommerce/woocommerce.php',apply_filters('active_plugins', get_option('active_plugins'))));
-	if(is_multisite()){
-		//Si multisite
-		$wooCommerceActiveET = (array_key_exists('woocommerce/woocommerce.php', 
-														apply_filters('active_plugins', get_site_option('active_sitewide_plugins'))));
-	}
-	return $wooCommerceActiveET;
+		// Makes sure the plugin is defined before trying to use it
+		if ( !class_exists( 'WC_Payment_Gateway' ) ) {
+			return false;
+		}
+		return true;
 }
-
 // Ensure WooCommerce is active
-if (!wooCommerceActiveETwp()) {
-	return;
-}
+
+
 if(defined('WC_ETRANSACTIONS_PLUGIN')){
 		_e('Previous plugin already installed. deactivate the previous one first.', WC_ETRANSACTIONS_PLUGIN);
 		die(__('Previous plugin already installed. deactivate the previous one first.', WC_ETRANSACTIONS_PLUGIN));			
@@ -76,6 +72,9 @@ function wc_etransactions_installation() {
 	
 }
 function wc_etransactions_initialization() {
+	if(!wooCommerceActiveETwp()){
+		return ("Woocommerce not Active") ;
+	}
 	$class = 'WC_Etransactions_Abstract_Gateway';
 
 	if (!class_exists($class)) {
@@ -126,13 +125,20 @@ add_action('woocommerce_admin_order_data_after_billing_address', 'wc_etransactio
 
 function hmac_admin_notice(){
 	
-	$temp = new WC_Etransactions_Standard_Gateway();
-	$plugin_data = get_plugin_data( __FILE__ );
-	$plugin_name = $plugin_data['Name'];
-    if ( !$temp->checkCrypto() ) {
-    echo "<div class='notice notice-error  is-dismissible'>
-          <p><strong>/!\ Attention ! plugin ".$plugin_name." : </strong>".__('HMAC key cannot be decrypted please re-enter or reinitialise it.', WC_ETRANSACTIONS_PLUGIN)."</p>
-         </div>";
-    }
+	if(wooCommerceActiveETwp()){
+		$temp = new WC_Etransactions_Standard_Gateway();
+		$plugin_data = get_plugin_data( __FILE__ );
+		$plugin_name = $plugin_data['Name'];
+		if ( !$temp->checkCrypto() ) {
+		echo "<div class='notice notice-error  is-dismissible'>
+			  <p><strong>/!\ Attention ! plugin ".$plugin_name." : </strong>".__('HMAC key cannot be decrypted please re-enter or reinitialise it.', WC_ETRANSACTIONS_PLUGIN)."</p>
+			 </div>";
+		}
+	}else{
+		echo "<div class='notice notice-error  is-dismissible'>
+			  <p><strong>/!\ Attention ! plugin E-Transactions : </strong>".__('Woocommerce is not active !.', 'wc-etransactions')."</p>
+			 </div>";
+		
+	}
 }
 add_action('admin_notices', 'hmac_admin_notice');
